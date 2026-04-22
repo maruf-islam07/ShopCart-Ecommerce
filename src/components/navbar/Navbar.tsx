@@ -4,12 +4,13 @@ import logo from "../../../public/logo.png";
 import { FaHeart, FaSearch } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import Wrapperr from "../wrapper/Wrapperr";
-import { IoMdHome } from "react-icons/io";
+import { IoMdArrowRoundBack, IoMdHome } from "react-icons/io";
 import { BiCategory } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
 import { Carter_One } from "next/font/google";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 interface NavItem {
   icon: ReactNode; // JSX element-er jonno ReactNode use hoy
@@ -89,7 +90,7 @@ const Navbar = () => {
       </Wrapperr>
 
       {/* mobile menu  */}
-      <nav className="fixed bottom-0 bg-white px-14 w-full py-5 text-zinc-500 rounded-3xl">
+      <nav className="fixed lg:hidden bottom-0 bg-white px-14 w-full py-5 text-zinc-500 rounded-3xl">
         <ul className="flex items-center justify-between ">
           {Tabs.map((tab, index) => {
             // Check kora hocche ei tab-ta active kina
@@ -134,7 +135,7 @@ const Navbar = () => {
       {/* sidebar  */}
       {/* Sidebar Overlay (Kalo jhapsha background) */}
       <div
-        className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
+        className={`fixed lg:hidden inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
           openSidebar ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setOpenSidebar(false)} // Baire click korle bondho hobe
@@ -142,24 +143,20 @@ const Navbar = () => {
 
       {/* Sidebar Content */}
       <aside
-        className={`fixed top-0 left-0 h-full w-72 bg-white/80 z-80 shadow-2xl transform transition-transform duration-300 ease-in-out text-zinc-600 ${
+        className={`fixed  top-0 left-0 h-full w-full sm:w-150 lg:hidden bg-white z-100 shadow-2xl transform transition-transform duration-300 ease-in-out text-zinc-600 ${
           openSidebar ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="p-5 flex flex-col h-full">
           {/* Sidebar Header */}
-          <div className="flex items-center justify-between border-b pb-4">
-            <h2 className="text-xl font-bold">Categories</h2>
-            <button
-              onClick={() => setOpenSidebar(false)}
-              className="p-2 hover:bg-gray-100 rounded-full"
-            >
-              ✕
-            </button>
+          <div className="flex items-center border-b pb-4 space-x-1 " onClick={()=> setOpenSidebar(false)}>
+            <IoArrowBackSharp className="text-xl cursor-pointer "/>
+            <h2 className="text-xl cursor-pointer">Categories</h2>
+            
           </div>
 
           {/* Category List */}
-          <div className="mt-5 space-y-4 overflow-y-auto flex-1 rounded-2xl">
+          <div className="mt-5 space-y-4 overflow-y-auto flex-1 rounded-xl">
             {categories.map((cat) => (
               <div
                 key={cat}
