@@ -9,12 +9,15 @@ import { BiCategory } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
+import { Carter_One } from "next/font/google";
 
 interface NavItem {
   icon: ReactNode; // JSX element-er jonno ReactNode use hoy
   title: string;
   path?: string; //
 }
+
+  const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"]
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -83,11 +86,10 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
-
-        {/* mobile menu  */}
       </Wrapperr>
 
-      <nav className="fixed bottom-0 bg-white px-14 w-full py-5 text-zinc-500 ">
+      {/* mobile menu  */}
+      <nav className="fixed bottom-0 bg-white px-14 w-full py-5 text-zinc-500 rounded-3xl">
         <ul className="flex items-center justify-between ">
           {Tabs.map((tab, index) => {
             // Check kora hocche ei tab-ta active kina
@@ -115,7 +117,12 @@ const Navbar = () => {
               <button
                 key={index}
                 className="focus:outline-none"
-                onClick={() => handleActveTav(tab.title)}
+                onClick={() =>{
+                  handleActveTav(tab.title)
+                  setOpenSidebar(true)
+                }
+                }
+                  
               >
                 {content}
               </button>
@@ -123,6 +130,47 @@ const Navbar = () => {
           })}
         </ul>
       </nav>
+
+      {/* sidebar  */}
+      {/* Sidebar Overlay (Kalo jhapsha background) */}
+      <div
+        className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
+          openSidebar ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setOpenSidebar(false)} // Baire click korle bondho hobe
+      />
+
+      {/* Sidebar Content */}
+      <aside
+        className={`fixed top-0 left-0 h-full w-72 bg-white/80 z-80 shadow-2xl transform transition-transform duration-300 ease-in-out text-zinc-600 ${
+          openSidebar ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="p-5 flex flex-col h-full">
+          {/* Sidebar Header */}
+          <div className="flex items-center justify-between border-b pb-4">
+            <h2 className="text-xl font-bold">Categories</h2>
+            <button
+              onClick={() => setOpenSidebar(false)}
+              className="p-2 hover:bg-gray-100 rounded-full"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Category List */}
+          <div className="mt-5 space-y-4 overflow-y-auto flex-1 rounded-2xl">
+            {categories.map((cat) => (
+              <div
+                key={cat}
+                className="py-2 px-4 hover:bg-orange-500  hover:text-white rounded-lg cursor-pointer transition-colors"
+              >
+                {cat}
+              </div>
+            ))}
+          </div>
+        </div>
+      </aside>
     </header>
   );
 };
