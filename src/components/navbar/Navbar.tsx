@@ -13,33 +13,39 @@ import { ReactNode, useState } from "react";
 interface NavItem {
   icon: ReactNode; // JSX element-er jonno ReactNode use hoy
   title: string;
-  path? : string; //
+  path?: string; //
 }
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState(false);
+  const [activeTab, setActiveTab] = useState("Home");
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+  const handleActveTav = (tabName: string) => {
+    setActiveTab(tabName);
+    if (tabName === "Category") {
+      setOpenSidebar;
+    }
+  };
 
   const Tabs: NavItem[] = [
     {
       title: "Home",
       icon: <IoMdHome className="text-xl " />,
-      path : "/"
+      path: "/",
     },
     {
       title: "Category",
       icon: <BiCategory className="text-xl " />,
-      
     },
     {
       title: "Cart",
       icon: <MdShoppingCart className="text-xl " />,
-      path: "/cart"
-      
+      path: "/cart",
     },
     {
       title: "Account",
       icon: <VscAccount className="text-xl " />,
-      path: "/account"
+      path: "/account",
     },
   ];
 
@@ -83,30 +89,38 @@ const Navbar = () => {
 
       <nav className="fixed bottom-0 bg-white px-14 w-full py-5 text-zinc-500 ">
         <ul className="flex items-center justify-between ">
-          {Tabs.map((tab, index)=>{
-             const content = (
-              <div className="flex flex-col items-center gap-1 cursor-pointer">
+          {Tabs.map((tab, index) => {
+            // Check kora hocche ei tab-ta active kina
+            const isActive = activeTab === tab.title;
+            const content = (
+              <div
+                className={`flex flex-col items-center gap-1 cursor-pointer 
+                  ${isActive ? "text-orange-600" : "text-zinc-500"}`}
+              >
                 {tab.icon}
                 <span className="text-[10px]]">{tab.title}</span>
               </div>
-             );
+            );
 
-             // Condition: Path thakle Link, na thakle Button
-             return tab.path ? (
-              <Link href={tab.path} key={index}>
+            // Condition: Path thakle Link, na thakle Button
+            return tab.path ? (
+              <Link
+                href={tab.path}
+                key={index}
+                onClick={() => handleActveTav(tab.title)}
+              >
                 {content}
               </Link>
-             ) :(
+            ) : (
               <button
                 key={index}
-               
                 className="focus:outline-none"
+                onClick={() => handleActveTav(tab.title)}
               >
                 {content}
               </button>
-             )
-
-})}
+            );
+          })}
         </ul>
       </nav>
     </header>
