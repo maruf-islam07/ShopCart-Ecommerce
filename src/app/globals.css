@@ -2,3 +2,35 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* স্লাইডারের সাধারণ বুলেট */
+.swiper-pagination-bullet {
+  background: #e97d5c !important; /* ইন-অ্যাক্টিভ কালার */
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+  border: 1px solid white;
+}
+
+/* একটিভ বুলেট (যে স্লাইডে এখন আছেন) */
+.swiper-pagination-bullet-active {
+  background: #ff5722 !important; /* আপনার পছন্দের কালার */
+  width: 30px; /* একটিভ থাকলে একটু লম্বা দেখাবে */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* বাটনগুলোর ব্যাকগ্রাউন্ড গোল করতে চাইলে */
+.swiper-button-next {
+  border-radius: 20px 2px 2px 20px;
+  padding: 17px;
+  background: white;
+  color: #ff5722 !important;
+  width: 20px !important; /* সাইজ কমিয়ে ৩৫ বা ৪০ করতে পারেন */
+  height: 15px !important;
+}
+.swiper-button-prev {
+  background: white;
+  padding: 15px;
+  border-radius: 2px 20px 20px 2px;
+  color: #ff5722 !important;
+}

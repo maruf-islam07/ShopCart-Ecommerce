@@ -6,7 +6,7 @@ interface prop {
 
 function Wrapperr( {children }: prop ) {
   return (
-    <div className="max-w-350 mx-auto px-8">
+    <div className="max-w-300 lg:max-w-350 mx-auto lg:px-8 px-2``">
         {children}
     </div>
   )

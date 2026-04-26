@@ -18,7 +18,7 @@ interface NavItem {
   path?: string; //
 }
 
-  const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"]
+const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"]
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -54,34 +54,34 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white h-16 flex items-center lg:block">
+    <header className="bg-gray-800 h-20 flex items-center justify-center lg:block">
       <Wrapperr>
         <nav className="flex items-center justify-between  ">
           {/* logo */}
           <div className="lg:flex items-center hidden ">
-            <Image src={logo} width={60} height={40} alt="logo" className=" " />
-            <p className="text-2xl font-bold text-zink-200 -ms-3">
+            <Image src={logo} width={110} height={0} alt="logo" className=" " />
+            <p className="text-2xl font-bold text-white -ms-3">
               Shop<span className="text-orange-600">Craft</span>
             </p>
           </div>
 
           {/* search  */}
-          <div className="flex items-center justify-center border border-gray-400 rounded-xl px-2 w-100 sm:w-140 ">
+          <div className="flex items-center justify-center border bg-white rounded-xl px-2 w-100 sm:w-140 ">
             <FaSearch className="text-zinc-500" />
             <input
               type="text"
               placeholder="Search products..."
-              className="flex-1 px-3 py-2 focus:outline-none text-zinc-500"
+              className="flex-1 px-3 py-2 focus:outline-none text-zinc-500 bg-transparent"
             />
-            <button className="px-3 py-2 bg-orange-500 rounded-xl text-xs text-white hover:bg-orange-600">
+            <button className="px-3 py-2 bg-orange-500 rounded-xl text-xs text-zinc-200 hover:bg-orange-600">
               Search
             </button>
           </div>
 
           {/* nav action */}
           <div className="lg:flex items-center space-x-4 hidden ">
-            <FaHeart className="text-xl " />
-            <MdShoppingCart className="text-xl " />
+            <FaHeart className="text-xl text-white" />
+            <MdShoppingCart className="text-xl text-orange-500 " />
             <button className="px-4 py-2 border border-orange-500 rounded-xl text-xs font-semibold text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-150">
               Login
             </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
       </Wrapperr>
 
       {/* mobile menu  */}
-      <nav className="fixed lg:hidden bottom-0 bg-white px-14 w-full py-5 text-zinc-500 rounded-3xl">
+      <nav className="fixed lg:hidden bottom-0 bg-white px-20 w-full py-5 text-zinc-500 rounded-3xl">
         <ul className="flex items-center justify-between ">
           {Tabs.map((tab, index) => {
             // Check kora hocche ei tab-ta active kina
