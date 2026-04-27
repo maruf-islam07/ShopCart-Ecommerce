@@ -49,11 +49,11 @@ const sliderImage = [
 
 const Hero = () => {
   return (
-    <div className="mt-4">
+    <div className="mt-4 px-1 sm:px-10 md:px-20 lg:px-5">
       <Wrapperr>
         <div className="flex gap-5">
           {/* left slider */}
-          <div className="w-full lg:max-w-3/4 h-60 lg:h-90">
+          <div className="w-full lg:max-w-3/4 h-60 sm:70 md:h-90">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={50}
@@ -71,7 +71,7 @@ const Hero = () => {
                       src={image.src}
                       alt={image.title}
                       fill
-                      className="object-fit "
+                      className=""
                       priority={image.id === 1} // প্রথম ছবিটিকে দ্রুত লোড করার জন্য
                     />
                   </div>
@@ -81,8 +81,13 @@ const Hero = () => {
           </div>
 
           {/* right side app downloder card */}
-          <div className="hidden lg:w-1/4">
-            <h1>hello wolrd</h1>
+          <div className="hidden lg:block bg-white/60 w-full max-w-1/4 relative">
+            <Image
+              src="/desktopsidebar.png"
+              alt="siderbar"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </Wrapperr>

@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <header className="bg-gray-800 h-20 flex items-center justify-center lg:block">
       <Wrapperr>
-        <nav className="flex items-center justify-between  ">
+        <nav className="flex items-center justify-between ">
           {/* logo */}
           <div className="lg:flex items-center hidden ">
             <Image src={logo} width={110} height={0} alt="logo" className=" " />
@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
 
           {/* search  */}
-          <div className="flex items-center justify-center border bg-white rounded-xl px-2 w-100 sm:w-140 ">
+          <div className="flex items-center justify-center border bg-white rounded-xl px-2 w-120 sm:w-140 md:w-180  lg:w-140 ">
             <FaSearch className="text-zinc-500" />
             <input
               type="text"

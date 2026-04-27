@@ -22,7 +22,7 @@
 /* বাটনগুলোর ব্যাকগ্রাউন্ড গোল করতে চাইলে */
 .swiper-button-next {
   border-radius: 20px 2px 2px 20px;
-  padding: 17px;
+  padding: 3px;
   background: white;
   color: #ff5722 !important;
   width: 20px !important; /* সাইজ কমিয়ে ৩৫ বা ৪০ করতে পারেন */
@@ -30,7 +30,9 @@
 }
 .swiper-button-prev {
   background: white;
-  padding: 15px;
+  padding: 3px;
   border-radius: 2px 20px 20px 2px;
   color: #ff5722 !important;
+  height: 15px !important;
+  width: 20px !important;
 }
