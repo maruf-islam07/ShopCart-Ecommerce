@@ -90,7 +90,7 @@ const Navbar = () => {
       </Wrapperr>
 
       {/* mobile menu  */}
-      <nav className="fixed lg:hidden bottom-0 bg-white px-20 w-full py-5 text-zinc-500 rounded-3xl">
+      <nav className="fixed md:hidden bottom-0 z-80 bg-white px-20 w-full py-5 text-zinc-500 rounded-3xl">
         <ul className="flex items-center justify-between ">
           {Tabs.map((tab, index) => {
             // Check kora hocche ei tab-ta active kina
