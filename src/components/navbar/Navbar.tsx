@@ -4,21 +4,21 @@ import logo from "../../../public/logo.png";
 import { FaHeart, FaSearch } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import Wrapperr from "../wrapper/Wrapperr";
-import { IoMdArrowRoundBack, IoMdHome } from "react-icons/io";
+import { IoMdHome } from "react-icons/io";
 import { BiCategory } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
-import { Carter_One } from "next/font/google";
 import { IoArrowBackSharp } from "react-icons/io5";
 
 interface NavItem {
   icon: ReactNode; // JSX element-er jonno ReactNode use hoy
   title: string;
   path?: string; //
+  span? : number;
 }
 
-const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"]
+const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"];
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -45,6 +45,7 @@ const Navbar = () => {
       title: "Cart",
       icon: <MdShoppingCart className="text-xl " />,
       path: "/cart",
+      span: 3,
     },
     {
       title: "Account",
@@ -59,7 +60,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between ">
           {/* logo */}
           <div className="lg:flex items-center hidden ">
-            <Image src={logo} width={110} height={0} alt="logo" className=" " />
+            <Image src={logo} width={110} height={0} alt="logo" />
             <p className="text-2xl font-bold text-white -ms-3">
               Shop<span className="text-orange-600">Craft</span>
             </p>
@@ -78,10 +79,19 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* nav action */}
+          {/* Nav Actions (Desktop) */}
           <div className="lg:flex items-center space-x-4 hidden ">
-            <FaHeart className="text-xl text-white" />
-            <MdShoppingCart className="text-xl text-orange-500 " />
+            <div>
+              <FaHeart className="text-xl text-white" />
+            </div>
+
+            <Link href="/cart" className="relative">
+              <MdShoppingCart className="text-2xl text-orange-500 " />
+              <span className="absolute -top-2 -right-2 bg-white text-orange-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full border border-orange-600">
+                3
+              </span>
+            </Link>
+
             <button className="px-4 py-2 border border-orange-500 rounded-xl text-xs font-semibold text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-150">
               Login
             </button>
@@ -90,18 +100,25 @@ const Navbar = () => {
       </Wrapperr>
 
       {/* mobile menu  */}
-      <nav className="fixed md:hidden bottom-0 z-80 bg-white px-20 w-full py-5 text-zinc-500 rounded-3xl">
+      <nav className="fixed lg:hidden bottom-0 z-80 bg-white px-20 w-full py-5 text-zinc-500 rounded-3xl">
         <ul className="flex items-center justify-between ">
           {Tabs.map((tab, index) => {
             // Check kora hocche ei tab-ta active kina
             const isActive = activeTab === tab.title;
             const content = (
               <div
-                className={`flex flex-col items-center gap-1 cursor-pointer 
+                className={`relative flex flex-col items-center gap-1 cursor-pointer 
                   ${isActive ? "text-orange-600" : "text-zinc-500"}`}
               >
                 {tab.icon}
-                <span className="text-[10px]]">{tab.title}</span>
+                <span className="text-[11px]">{tab.title}</span>
+
+                {/* Cart-এর জন্য Badge Logic */}
+                {tab.span && (
+                  <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">
+                    {tab.span}
+                  </span>
+                )}
               </div>
             );
 
@@ -118,12 +135,10 @@ const Navbar = () => {
               <button
                 key={index}
                 className="focus:outline-none"
-                onClick={() =>{
-                  handleActveTav(tab.title)
-                  setOpenSidebar(true)
-                }
-                }
-                  
+                onClick={() => {
+                  handleActveTav(tab.title);
+                  setOpenSidebar(true);
+                }}
               >
                 {content}
               </button>
@@ -149,10 +164,12 @@ const Navbar = () => {
       >
         <div className="p-5 flex flex-col h-full">
           {/* Sidebar Header */}
-          <div className="flex items-center border-b pb-4 space-x-1 " onClick={()=> setOpenSidebar(false)}>
-            <IoArrowBackSharp className="text-xl cursor-pointer "/>
+          <div
+            className="flex items-center border-b pb-4 space-x-1 "
+            onClick={() => setOpenSidebar(false)}
+          >
+            <IoArrowBackSharp className="text-xl cursor-pointer " />
             <h2 className="text-xl cursor-pointer">Categories</h2>
-            
           </div>
 
           {/* Category List */}

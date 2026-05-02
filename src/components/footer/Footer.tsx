@@ -58,7 +58,7 @@ const Footer = () => {
           <nav className=" px-3">
             <h6 className="footer-title">Payment Methods</h6>
             <div className="w-80 grid grid-cols-3 gap-5  relative">
-              <Link href="/" className="hover:text-orange-500 h-13.5 ">
+              <Link href="/" className="hover:text-orange-500 h-13.5 hover:scale-105 transition-transform duration-300 ">
                 <Image
                   src="/payment/americanExpress.png"
                   width={60}
@@ -68,7 +68,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="/"
-                className="hover:text-orange-500 w- h-13.5 col-span-2"
+                className="hover:text-orange-500 w- h-13.5 col-span-2 hover:scale-105 transition-transform duration-300"
               >
                 <Image
                   src="/payment/creditDebitCard.svg"
@@ -77,7 +77,7 @@ const Footer = () => {
                   alt="amirican"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5  ">
+              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300  ">
                 <Image
                   src="/payment/bkash.png"
                   width={80}
@@ -85,7 +85,7 @@ const Footer = () => {
                   alt="amirican"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5 ">
+              <Link href="/" className="hover:text-orange-500 h-13.5   hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/payment/nagad.png"
                   width={80}
@@ -93,7 +93,7 @@ const Footer = () => {
                   alt="amirican"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5 ">
+              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300 ">
                 <Image
                   src="/payment/upay2.svg"
                   width={80}
@@ -101,7 +101,7 @@ const Footer = () => {
                   alt="amirican"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5 ">
+              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300 ">
                 <Image
                   src="/payment/cod.png"
                   width={80}
@@ -109,7 +109,7 @@ const Footer = () => {
                   alt="amirican"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5">
+              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/payment/ssl.png"
                   width={80}
@@ -120,7 +120,7 @@ const Footer = () => {
             </div>
           </nav>
         </footer>
-        <div className="border-t border-gray-300 py-3">
+        <div className="border-t border-gray-300 py-3  hover:scale-105 transition-transform duration-300">
           <p className="text-center mb-10 md:mb-0 ">
             © Copyright 2026 ShopCraft All Rights are Reserved.
           </p>
