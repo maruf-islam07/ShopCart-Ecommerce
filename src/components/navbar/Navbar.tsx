@@ -8,14 +8,15 @@ import { IoMdHome } from "react-icons/io";
 import { BiCategory } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { IoArrowBackSharp } from "react-icons/io5";
+import { useCart } from "../../hooks/useCart";
 
 interface NavItem {
   icon: ReactNode; // JSX element-er jonno ReactNode use hoy
   title: string;
   path?: string; //
-  span? : number;
+  span?: number; // Cart-er jonno badge count er jonno optional property
 }
 
 const categories = ["Electronics", "Fashion", "Home Decor", "Gadgets"];
@@ -31,6 +32,16 @@ const Navbar = () => {
     }
   };
 
+  // use redux toolkit for cart er item count dekhar jonno
+  const { totalQuantity } = useCart(); // Cart theke total quantity niye ashtechi
+  const [isMounted, setIsMounted] = useState(false); // Client-side rendering er jonno
+
+  // useEffect diye component mount hole totalQuantity update korbo
+  useEffect(() => {
+    setIsMounted(true); // Component mount hole true kore dibo
+  }, []);
+
+  
   const Tabs: NavItem[] = [
     {
       title: "Home",
@@ -45,7 +56,7 @@ const Navbar = () => {
       title: "Cart",
       icon: <MdShoppingCart className="text-xl " />,
       path: "/cart",
-      span: 3,
+      span: totalQuantity, // Cart-er jonno badge count,`totalQuantity` useCart hook theke niye ashtechi
     },
     {
       title: "Account",
@@ -57,6 +68,7 @@ const Navbar = () => {
   return (
     <header className="bg-gray-800 h-20 flex items-center justify-center lg:block">
       <Wrapperr>
+        {/* desktop navbar */}
         <nav className="flex items-center justify-between ">
           {/* logo */}
           <div className="lg:flex items-center hidden ">
@@ -87,9 +99,13 @@ const Navbar = () => {
 
             <Link href="/cart" className="relative">
               <MdShoppingCart className="text-2xl text-orange-500 " />
-              <span className="absolute -top-2 -right-2 bg-white text-orange-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full border border-orange-600">
-                3
-              </span>
+
+              {/* Cart-er jonno Badge Logic */}
+              {isMounted && totalQuantity > 0 && (
+                <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-[10px] rounded-full px-1.5">
+                  {totalQuantity}
+                </span>
+              )}
             </Link>
 
             <button className="px-4 py-2 border border-orange-500 rounded-xl text-xs font-semibold text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-150">
@@ -114,7 +130,7 @@ const Navbar = () => {
                 <span className="text-[11px]">{tab.title}</span>
 
                 {/* Cart-এর জন্য Badge Logic */}
-                {tab.span && (
+                {tab.span && isMounted && totalQuantity > 0 && (
                   <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">
                     {tab.span}
                   </span>

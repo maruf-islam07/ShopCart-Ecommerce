@@ -58,63 +58,95 @@ const Footer = () => {
           <nav className=" px-3">
             <h6 className="footer-title">Payment Methods</h6>
             <div className="w-80 grid grid-cols-3 gap-5  relative">
-              <Link href="/" className="hover:text-orange-500 h-13.5 hover:scale-105 transition-transform duration-300 ">
+              <Link
+                href="/"
+                className="h-12 hover:scale-105 transition-transform duration-300 relative"
+              >
                 <Image
                   src="/payment/americanExpress.png"
-                  width={60}
-                  height={1}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px" // লোগো ছোট তাই ১০০ পিক্সেল দিলেই হবে
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" // অথবা global CSS এ height: auto নিশ্চিত করুন
                 />
               </Link>
               <Link
                 href="/"
-                className="hover:text-orange-500 w- h-13.5 col-span-2 hover:scale-105 transition-transform duration-300"
+                className="h-12 col-span-2 hover:scale-105 transition-transform duration-300 relative"
               >
                 <Image
                   src="/payment/creditDebitCard.svg"
-                  width={90}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" //
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300  ">
+              <Link
+                href="/"
+                className="h-12 hover:scale-105 transition-transform duration-300  relative "
+              >
                 <Image
                   src="/payment/bkash.png"
-                  width={80}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto"
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5   hover:scale-105 transition-transform duration-300">
+              <Link
+                href="/"
+                className="h-12 hover:scale-105 transition-transform duration-300 relative"
+              >
                 <Image
                   src="/payment/nagad.png"
-                  width={80}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" //
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300 ">
+              <Link
+                href="/"
+                className="h-12 hover:scale-105 transition-transform duration-300  relative"
+              >
                 <Image
                   src="/payment/upay2.svg"
-                  width={80}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" //
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300 ">
+              <Link
+                href="/"
+                className="h-12 hover:scale-105 transition-transform duration-300  relative"
+              >
                 <Image
                   src="/payment/cod.png"
-                  width={80}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" //
                 />
               </Link>
-              <Link href="/" className="hover:text-orange-500 h-13.5  hover:scale-105 transition-transform duration-300">
+              <Link
+                href="/"
+                className="h-12  hover:scale-105 transition-transform duration-300 relative"
+              >
                 <Image
                   src="/payment/ssl.png"
-                  width={80}
-                  height={2}
-                  alt="amirican"
+                  alt="American Express"
+                  fill
+                  sizes="100px"
+                  style={{ objectFit: "contain" }}
+                  className="w-auto h-auto" //
                 />
               </Link>
             </div>

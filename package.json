@@ -30,6 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/redux-persist": "^4.0.0",
     "babel-plugin-react-compiler": "1.0.0",
     "daisyui": "^5.5.19",
     "eslint": "^9",

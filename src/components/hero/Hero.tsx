@@ -53,7 +53,7 @@ const Hero = () => {
       <Wrapperr>
         <div className="flex gap-5">
           {/* left slider */}
-          <div className="w-full lg:max-w-3/4 h-60 sm:70 md:h-90">
+          <div className="w-full lg:max-w-3/4 ">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={50}
@@ -62,11 +62,11 @@ const Hero = () => {
               loop={true}
               navigation
               pagination={{ clickable: true }}
-              className="h-full w-full"
+              className="h-full w-full "
             >
               {sliderImage.map((image) => (
                 <SwiperSlide key={image.id}>
-                  <div className="">
+                  <div className="relative w-full h-60 sm:70 md:h-90">
                     <Image
                       src={image.src}
                       alt={image.title}
@@ -86,6 +86,7 @@ const Hero = () => {
               src="/desktopsidebar.png"
               alt="siderbar"
               fill
+              sizes="200px"
               className="object-cover"
             />
           </div>
