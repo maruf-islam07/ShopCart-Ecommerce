@@ -1,7 +1,5 @@
 import { RootState } from "../../lib/store";
 
-// selctors for cart
-export const selectCart = (state: RootState) => state.cart;
 
 // selectors for cart items
 export const selectCartItems = (state: RootState) => state.cart.items;

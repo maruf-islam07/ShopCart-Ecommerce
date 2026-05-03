@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { cartState } from "../../types/cart";
 
-const initialState = {
+const initialState:cartState = {
   items: [],
   totalPrice: 0,
   totalQuantity: 0,
@@ -31,12 +32,12 @@ const cartSlice = createSlice({
     decreaseQuantity: (state, action) => {
       const newItem = action.payload.id;
       const existingItem = state.items.find((item) => item.id === newItem);
-      
+
       if (existingItem) {
         // existing items thakle 1st a total quantity and total price theke 1 item er price minus kore dibo
         state.totalQuantity -= 1;
         state.totalPrice -= existingItem.price;
-        
+
         // tarpor jodi existing item er quantity 1 theke beshi hoy tahole quantity theke 1 minus kore dibo and total price theke os minus kore dibo
         if (existingItem.quantity > 1) {
           existingItem.quantity -= 1;
@@ -63,5 +64,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const {addToCart, decreaseQuantity, removeFromCart} = cartSlice.actions;
+export const { addToCart, decreaseQuantity, removeFromCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

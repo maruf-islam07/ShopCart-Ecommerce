@@ -10,6 +10,7 @@ const page = () => {
     totalPrice,
     totalQuantity,
     addItemToCart,
+    descreaseItemQuantity,
     removeItemFromCart,
   } = useCart();
   return (
@@ -43,7 +44,15 @@ const page = () => {
 
             {/* main cart items section  */}
             <div className="bg-cyan-100/50 rounded-2xl p-6 shadow-md mb-8 flex-1">
-              <CartItemsCard />
+              {items.map((item) => (
+                <CartItemsCard
+                  key={item.id}
+                  item={item}
+                  onAdd={addItemToCart}
+                  onDelete={removeItemFromCart}
+                  descreaseQuantity={descreaseItemQuantity}
+                />
+              ))}
             </div>
           </div>
 
