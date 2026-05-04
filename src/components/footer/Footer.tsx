@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="pb-20 md:pb-0 lg:pb-0 bg-white text-zinc-800">
+    <div className="pb-28 lg:pb-0 bg-white text-zinc-800">
       <Wrapperr>
         <footer className="footer sm:footer-horizontal p-10">
           <aside>
