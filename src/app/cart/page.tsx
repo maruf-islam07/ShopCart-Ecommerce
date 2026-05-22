@@ -10,8 +10,6 @@ const page = () => {
     totalPrice,
     totalQuantity,
     addItemToCart,
-    descreaseItemQuantity,
-    removeItemFromCart,
   } = useCart();
   return (
     <div className="min-h-screen p-5">
@@ -51,8 +49,6 @@ const page = () => {
                       key={item.id}
                       item={item}
                       onAdd={() => addItemToCart(item)}
-                      onRemove={() => removeItemFromCart(item.id)}
-                      descreaseQuantity={() => descreaseItemQuantity(item.id)}
                     />
                   ))}
                 </div>
@@ -64,7 +60,7 @@ const page = () => {
                 <div className="border-t "></div>
 
                 <div className="flex items-center justify-between">
-                  <p>Total Items: </p>
+                  <p>Total Items:</p>
                   <p>{totalQuantity}</p>
                 </div>
                 <div className="border border-dotted border-gray-300 "></div>
@@ -72,7 +68,7 @@ const page = () => {
                 {/* subtotal fee  */}
                 <div className="flex items-center justify-between">
                   <p> Subtotal:</p>
-                  <p>${totalPrice.toFixed(2)}</p>
+                  <p>${totalPrice}</p>
                 </div>
 
                 {/* ceckout button */}

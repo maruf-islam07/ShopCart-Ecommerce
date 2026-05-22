@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import ReduxProvider from "../provider/reduxProvider";
+import ReactQueryProvider from "../provider/reactQueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,11 +33,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ReduxProvider>
-          <Navbar />
+          <ReactQueryProvider>
+            <Navbar />
 
-          <div className="bg-gray-200 flex-1">{children}</div>
+            <div className="bg-gray-200 flex-1">{children}</div>
 
-          <Footer />
+            <Footer />
+          </ReactQueryProvider>
         </ReduxProvider>
       </body>
     </html>

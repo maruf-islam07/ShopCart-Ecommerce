@@ -4,11 +4,13 @@ import {
   selectCartTotalPrice,
   selectCartTotalQuantity,
 } from "../features/cart/cartSelector";
+
 import {
   addToCart,
   decreaseQuantity,
   removeFromCart,
 } from "../features/cart/cartSlice";
+
 import { cartItems } from "../types/cart";
 
 export const useCart = () => {

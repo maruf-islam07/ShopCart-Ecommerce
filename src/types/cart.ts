@@ -16,6 +16,4 @@ export interface cartState {
 export interface CartItemsCardProps {
   item: cartItems;
   onAdd: (item: cartItems) => void;
-  onRemove: (id: string) => void;
-  descreaseQuantity: (id: string) => void;
 }

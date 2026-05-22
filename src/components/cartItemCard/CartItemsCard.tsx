@@ -4,22 +4,22 @@ import { FaRegHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { CartItemsCardProps } from "../../types/cart";
 import Image from "next/image";
+import { useCart } from "../../hooks/useCart";
 
 const CartItemsCard = ({
   item,
   onAdd,
-  onRemove,
-  descreaseQuantity,
 }: CartItemsCardProps) => {
+  const {removeItemFromCart, descreaseItemQuantity} = useCart();
   return (
-    <div className="bg-white flex justify-between items-center p-4 rounded-md shadow-md">
+    <div className="bg-white flex gap-5 justify-between items-center p-4 rounded-md shadow-md">
       {/* image */}
       <div
         className="border px-18 py-10 rounded-md relative w-32 h-32 
       "
       >
         <Image
-          src={item.image}
+          src={item.f || "/placeholder.png"}
           fill
           sizes="200px"
           className="object-cover rounded"
@@ -39,7 +39,7 @@ const CartItemsCard = ({
         <div className="flex border border-zinc-300 rounded-lg overflow-hidden w-fit">
           {/* কমানোর বাটন */}
           <button
-            onClick={() => descreaseQuantity(item.id)}
+            onClick={() => descreaseItemQuantity(item)}
             className="px-3 py-1 bg-gray-100 hover:bg-zinc-200 transition-colors text-black"
           >
             -
@@ -69,7 +69,7 @@ const CartItemsCard = ({
 
         {/* remove and wishlist buttons */}
         <div className="space-x-2 text-gray-500">
-          <button onClick={() => onRemove(item.id)}>
+          <button onClick={() => removeItemFromCart(item)}>
             <RiDeleteBin6Line className="text-xl" />
           </button>
           <button>
